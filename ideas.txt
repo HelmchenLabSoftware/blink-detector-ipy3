@@ -1,0 +1,34 @@
+Ideas-Dominik-Videos:
+
+Conjecture 1: Reflected spotlight correlates with blink
+  1.1) Spot present on all videos? Yes
+  1.2) Spot disappears on full blink? Yes
+  1.3) Spot moves right and a little down when closing in process?
+	[+/-] it can also move head up and down a little bit
+
+Strategy 1:
+  1) Merge all trials from the same day into 1 video. Record frame lengths.
+  2) Load into ImageJ
+  3) Make two separate cuts
+      - horizontal line through eye containing flash
+      - circle containing flash and lower lid of the eye (empty outsides of circle)
+  4) Use levels to delete as much as possible of intensity above and below the flash
+  5) Apply intensity extraction algorithm. Also apply x-COM to first cut
+  6) Load data into postprocess algorithm
+    6.1) Select min noblink level, everything below is set to 0
+    6.2) Select max rubbish level, everything above +-3 frames is set to 0.
+    6.3) Define everything that is 0 as blink
+    6.4) Define everything more than 1.5 times the average as wide open
+    6.5) For all open but not wide open use x-COM to determine how closed the eye is.
+
+
+Problems:
+  [ ] Can't tell apart whiskers from paw. Both get in front and increase brightness, but one is with open eye, other with closed
+  [] Double cut actually useless, as the primary flash can move all the way to the edge of the lid. It is more useful to estimate x-COM of the whole cut, sub-selecting only low intensities
+
+
+Separation of trials into trial classes based on Cue file
+1   :  "With Cue 1"
+2   :  "With Cue 2"
+3   :  "With Cue 3"
+4   :  "With Cue 4"
