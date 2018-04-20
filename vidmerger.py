@@ -7,11 +7,13 @@ import json
 
 
 # 1) Find all videos in a given folder.
-path = '/media/aleksejs/DataHDD/work/videos-dominik/VGlut_4_100418/'  # Don't forget / at the end
+
+folder_name = 'VGlut_4_100418'
+path = '/media/aleksejs/DataHDD/work/videos-dominik/' + folder_name + '/'  # Don't forget / at the end
 ext = '.avi'
-rezfilename = 'merged_video_3' + ext
-tmpfilename = path + 'tmp_vidmerger_list.txt'
-framefilename = path + 'framecount3.txt'
+rezfilename = 'analysis/merged_videos/merged_video_' + folder_name + ext
+tmpfilename = 'tmp_vidmerger_list.txt'
+framefilename = 'analysis/frame_count_files/framecount_' + folder_name + '.txt'
 
 tmpfile = open(tmpfilename, 'w')
 framefile = open(framefilename, 'w')

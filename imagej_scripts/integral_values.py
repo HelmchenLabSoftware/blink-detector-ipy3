@@ -70,7 +70,12 @@ for currentFrame in range(1, img2.getNFrames() + 1):
 
 print("writing to file...")
 
-myfile = open('/home/aleksejs/rez.txt', 'w')
+# Find 
+thisStr = IJ.getDirectory("image")
+upStr = thisStr[:thisStr.find("merged_videos/")]
+rezPath = upStr + "blink_files/result_new.txt"
+
+myfile = open(rezPath, 'w')
 for i in range(len(slicesIdx)):
   myfile.write(str(slicesIdx[i]) + " " + str(sliceAvgInt[i]) + " " + str(sliceAboveZeroNorm[i]) + " " + str(sliceExpectedRadNorm[i]) + "\n")
 myfile.close()
